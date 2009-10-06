@@ -25,7 +25,7 @@ module WithoutScope
       def acts_as_revisable(*args, &block)
         revisable_shared_setup(args, block)
         self.send(:include, Revisable)
-        self.send(:include, Deletable) if self.revisable_options.on_delete == :revise
+        self.send(:include, Deletable) if self.revisable_options.on_destroy == :revise
       end
       
       # This +acts_as+ extension provides for making a model the 
